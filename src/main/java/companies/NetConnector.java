@@ -18,17 +18,17 @@ public class NetConnector {
 
         int j,k;
 
-        for(j=0;j<inArr.length;j++) {
-            for(k=j;k<inArr.length;k++) {
-                if(inArr[j]>inArr[k]) {
-                    inArr[j]=inArr[j]+inArr[k];
-                    inArr[k]=inArr[j]-inArr[k];
-                    inArr[j]=inArr[j]-inArr[k];
-
-                }
-            }
-
-        }
+//        for(j=0;j<inArr.length;j++) {
+//            for(k=j;k<inArr.length;k++) {
+//                if(inArr[j]>inArr[k]) {
+//                    inArr[j]=inArr[j]+inArr[k];
+//                    inArr[k]=inArr[j]-inArr[k];
+//                    inArr[j]=inArr[j]-inArr[k];
+//
+//                }
+//            }
+//
+//        }
 
         return inArr;
     }

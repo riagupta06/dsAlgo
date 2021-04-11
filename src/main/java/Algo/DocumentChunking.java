@@ -2,6 +2,7 @@ package Algo;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -20,35 +21,25 @@ public class DocumentChunking {
 
 
     public static int minimumChunksRequired(long total, List<List<Long>> uploadedChunks) {
-        ArrayList<ArrayList<Long>> list= new ArrayList<>();
-        for (int i = 0; i < uploadedChunks.size(); i++) {
-            long start = uploadedChunks.get(i).get(0);
-            long end = uploadedChunks.get(i).get(1);
-            ArrayList<Long> small = new ArrayList<>();
-            small.add(start);
-            small.add(end);
-            list.add(small);
-        }
-
 
         //sorting the uploaded chunks
-        Collections.sort(list , new Comparator<ArrayList<Long>>(){
-            public int compare(ArrayList<Long> l1 , ArrayList<Long> l2){
+        Collections.sort(uploadedChunks , new Comparator<List<Long>>() {
+            public int compare(List<Long> l1 , List<Long> l2){
                 return (int) (l1.get(0)-l2.get(0));
             }
         });
 
         long lastChunkNum = 1;
         int ans = 0;
-        for (int i = 0; i < list.size(); i++) {
-            long start = list.get(i).get(0);
-            long end = list.get(i).get(2-1);
+        for (int i = 0; i < uploadedChunks.size(); i++) {
+            long start = uploadedChunks.get(i).get(0);
+            long end = uploadedChunks.get(i).get(1);
             ans+=pow2(start-lastChunkNum);
             lastChunkNum = end+1;
         }
 
-        if(list.get(uploadedChunks.size()-1).get(2-1)!=total){
-            ans+=pow2(total - list.get(uploadedChunks.size()-1).get(2-1));
+        if(uploadedChunks.get(uploadedChunks.size()-1).get(1)!=total){
+            ans+=pow2(total - uploadedChunks.get(uploadedChunks.size()-1).get(1));
         }
         return ans;
     }

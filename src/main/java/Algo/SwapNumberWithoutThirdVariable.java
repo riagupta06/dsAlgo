@@ -1,3 +1,5 @@
+package Algo;
+
 public class SwapNumberWithoutThirdVariable {
 
     public static void main (String[] args) {

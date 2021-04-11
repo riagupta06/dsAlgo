@@ -1,3 +1,5 @@
+package Algo;
+
 public class CheckIfStringIsPalindrome {
 
     public static void main(String[] args) {

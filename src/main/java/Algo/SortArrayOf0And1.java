@@ -1,3 +1,5 @@
+package Algo;
+
 public class SortArrayOf0And1 {
 
     public static void main(String[] args) {

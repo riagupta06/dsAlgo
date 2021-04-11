@@ -33,13 +33,13 @@ public class DocumentChunking {
         int ans = 0;
         for (int i = 0; i < uploadedChunks.size(); i++) {
             long start = uploadedChunks.get(i).get(0);
-            long end = uploadedChunks.get(i).get(2-1);
+            long end = uploadedChunks.get(i).get(1);
             ans+=pow2(start-lastChunkNum);
             lastChunkNum = end+1;
         }
 
-        if(uploadedChunks.get(uploadedChunks.size()-1).get(2-1)!=total){
-            ans+=pow2(total - uploadedChunks.get(uploadedChunks.size()-1).get(2-1));
+        if(uploadedChunks.get(uploadedChunks.size()-1).get(1)!=total){
+            ans+=pow2(total - uploadedChunks.get(uploadedChunks.size()-1).get(1));
         }
         return ans;
     }

@@ -1,4 +1,4 @@
-package Algo;
+package array;
 
 public class SortArrayOf0And1 {
 

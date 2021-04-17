@@ -1,4 +1,4 @@
-package Algo;
+package numbers;
 
 public class SwapNumberWithoutThirdVariable {
 

@@ -1,4 +1,4 @@
-package Algo;
+package string;
 
 import java.util.stream.IntStream;
 

@@ -1,3 +1,5 @@
+package datastructure;
+
 import java.util.*;
 
 public class LRUCache {

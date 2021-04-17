@@ -25,13 +25,15 @@ public class EmployeeSorting {
         System.out.println(employeeList);
 
         //java 8
-        List<Employee> sorted = employeeList.stream().sorted(Comparator.comparingInt(o -> o.getId()))
+        List<Employee> sorted = (List<Employee>) employeeList.stream()
+                .sorted(new EmployeeSortById())
                 .collect(Collectors.toList());
         //sort by id
         System.out.println(sorted);
 
         //java 8
-        List<Employee> multiSorted = (List<Employee>) employeeList.stream().sorted(new EmployeeSortByName().thenComparing(new EmployeeSortById()))
+        List<Employee> multiSorted = employeeList.stream()
+                .sorted(Comparator.comparing(Employee::getName).thenComparing(Employee::getId))
                 .collect(Collectors.toList());
         //sort by name & id
         System.out.println(multiSorted);

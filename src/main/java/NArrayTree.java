@@ -6,7 +6,6 @@ public class NArrayTree {
     // Class for the node of the tree
     static class Node {
         int data;
-
         // List of children
         Node children[];
 
@@ -30,15 +29,12 @@ public class NArrayTree {
         for (int i = 0; i < total - 1; i++)
             inorder(node.children[i], list);
 
-        // Print the current node's data
-        //System.out.print("" + node.data + " ");
         list.add(node.data);
 
         // Last child
         inorder(node.children[total - 1], list);
     }
 
-    // Driver code
     public static void main(String[] args)
     {
 
@@ -48,7 +44,8 @@ public class NArrayTree {
            2
          /   \
         3     4
-       /
+      / | \    \
+     5  6  7    8
     */
         int n = 3;
         Node root = new Node(n, 1);
@@ -62,7 +59,8 @@ public class NArrayTree {
 
         List<Integer> list = new ArrayList<>();
         inorder(root, list);
-        int processNumber = 6;
+        System.out.println(list);
+        int processNumber = 8;
         for (int i=0; i<list.size(); i++) {
             if(processNumber == list.get(i)) {
                 while(list.get(i) >= processNumber) {

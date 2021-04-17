@@ -1,11 +1,19 @@
 package Algo;
 
+import java.util.stream.IntStream;
+
 public class CheckIfStringIsPalindrome {
 
     public static void main(String[] args) {
         String input = "treaert1";
-        boolean isPalindrome = isPalindrome(input);
-        System.out.println(isPalindrome);
+
+        //usual way
+        System.out.println(isPalindrome(input));
+
+        //java8
+        boolean allMatch = IntStream.range(0, input.length() / 2)
+                .allMatch(i -> input.charAt(i) == input.charAt(input.length() - 1 - i));
+        System.out.println(allMatch);
     }
 
     private static boolean isPalindrome(String input) {

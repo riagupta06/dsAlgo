@@ -1,6 +1,7 @@
 package core;
 
 import java.io.*;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 /* Different ways to achieve -
@@ -97,14 +98,13 @@ public class SingletonClass {
     public static void main(String args[]) throws IOException, ClassNotFoundException, IllegalAccessException, InvocationTargetException, InstantiationException {
         /*works with enum approach, since it gives below exception
         Exception in thread "main" java.lang.IllegalArgumentException: Cannot reflectively create enum objects*/
-        /*Constructor[] declaredConstructors = Singleton2.class.getDeclaredConstructors();
+        //This creates 2 objects
+        Constructor[] declaredConstructors = Singleton.class.getDeclaredConstructors();
         for(Constructor declaredConstructor : declaredConstructors) {
             declaredConstructor.setAccessible(true);
             Object o = declaredConstructor.newInstance();
             System.out.println((Singleton) o);
-        }*/
-        System.out.println(Singleton2.instance.hashCode());
-        System.out.println(Singleton2.instance.hashCode());
+        }
         Singleton instance = Singleton.getInstance();
         System.out.println(instance);
         System.out.println(Singleton.getInstance());
